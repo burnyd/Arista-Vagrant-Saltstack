@@ -16,4 +16,4 @@ Once all the boxes are up
 vagrant ssh mgt1
 salt-key -L #This will list the salt minions
 salt-key -A #This will accept all salt minions
-salt '*' test.ping #This will send a test ping to all devices. 
+salt '*' test.ping #This will send a test ping to all devices
