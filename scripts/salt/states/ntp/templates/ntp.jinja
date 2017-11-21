@@ -1,0 +1,15 @@
+{%- if grains.vendor|lower in ['cisco', 'arista'] %}
+ no ntp
+ {%- for server in servers %}
+ ntp server {{ server }}
+ {%- endfor %}
+{%- elif grains.os|lower == 'junos' %}
+ system {
+ replace:
+ ntp {
+ {%- for server in servers %}
+ server {{ server }};
+ {%- endfor %}
+ }
+ }
+{%- endif %}
