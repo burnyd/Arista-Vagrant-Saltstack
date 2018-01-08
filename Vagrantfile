@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-config.vm.box = "vEOS-20-eft-2"
+config.vm.box = "vEOS-lab-4.20.1F"
 config.ssh.insert_key = false
 #vb.memory = '2048'
 
@@ -125,7 +125,7 @@ config.ssh.insert_key = false
     end
 
   config.vm.define "mgt1" do |mgt1|
-    mgt1.vm.box = "ubuntu/trusty64"
+    mgt1.vm.box = "bento/ubuntu-16.04"
     mgt1.vm.hostname = "mgt1"
     mgt1.vm.provision "shell", path: "scripts/mgt1.sh"
     mgt1.vm.network "private_network", ip: "10.0.0.15",
