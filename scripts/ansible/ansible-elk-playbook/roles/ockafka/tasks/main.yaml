@@ -1,0 +1,8 @@
+---
+#
+# Run the ockafka binary
+#
+
+# Run the ockafka binary
+- name: Run ockafka in the background
+  raw: ockafka -addrs leaf1a:6042 -kafkaaddrs 127.0.0.1:9092 -subscribe /Sysdb/

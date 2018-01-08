@@ -1,3 +1,20 @@
+file_roots:
+
+  base:
+    - /srv/salt
+    - /srv/salt/states
+    - /srv/salt/pillar
+    - /srv/salt/states
+    - /srv/salt/templates/
+    - /srv/salt/reactor/
+
+reactor:
+  - salt/minion/leaf*/start:
+    - salt://reactor/leafvlansztp.sls
+
+  - salt/minion/*/start:
+    - salt://reactor/slackgenerate.sls
+
 ##### Primary configuration settings #####
 ##########################################
 # This configuration file is used to manage the behavior of the Salt Master.
@@ -598,13 +615,9 @@
 # roots cannot match, otherwise the downloaded files will not be able to be
 # reliably ensured. A base environment is required to house the top file.
 # Example:
- file_roots:
-   base:
-     - /etc/salt
-     - /etc/salt/states
-     - /etc/salt/pillar
-     - /etc/salt/states
-     - /etc/salt/templates/
+#file_roots:
+#   base:
+#     - /srv/salt/
 #   dev:
 #     - /srv/salt/dev/services
 #     - /srv/salt/dev/states
@@ -782,9 +795,9 @@
 # Pillar is laid out in the same fashion as the file server, with environments,
 # a top file and sls files. However, pillar data does not need to be in the
 # highstate format, and is generally just key/value pairs.
- pillar_roots:
-   base:
-     - /etc/salt/pillar
+#pillar_roots:
+#  base:
+#    - /srv/pillar
 #
 #ext_pillar:
 #  - hiera: /etc/hiera.yaml

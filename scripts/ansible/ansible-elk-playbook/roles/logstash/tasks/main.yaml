@@ -1,0 +1,22 @@
+---
+#
+# Installing logstash
+#
+
+# Install logstash
+
+- name: Install logstash with apt
+  apt:
+   name: logstash
+   update_cache: yes
+
+- name: Copying logstash file
+  copy:
+   src: /vagrant/scripts/logstash.conf
+   dest: /etc/logstash/conf.d/logstash.conf
+
+   
+- name: Starting logstash
+  service:
+   name: logstash
+   state: restarted
