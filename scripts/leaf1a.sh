@@ -54,6 +54,10 @@ ip routing
 !
 ip route 0.0.0.0/0 10.0.2.2
 !
+router bgp 6500
+   neighbor 1.1.1.1 remote-as 1
+   neighbor 1.1.1.1 maximum-routes 12000 
+!
 management api http-commands
    protocol http
    protocol unix-socket
